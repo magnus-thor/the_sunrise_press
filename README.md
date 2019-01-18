@@ -1,16 +1,24 @@
-# The Sunshine Press
----
-This is a simple news site.
+# README
 
-# Features included:
-* Visitor can register for an account
-* Visitor can view all listed articles
-* Visitor can view articles in categories
-* Visitor can view specific article
-* Editor can edit articles written by journalists
-* Editor can review and publish articles
-* Journalist can create article
-* Journalist can update article
-* Logged in user can comment on articles
-* User can buy a subscription
-* User can login and logout
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...

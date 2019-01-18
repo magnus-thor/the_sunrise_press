@@ -6,28 +6,4 @@
         %p= @article.description
         %p= @article.content
         - if current_user == @article.user
-            =link_to 'Edit', edit_content_management_article_path(@article)
-        
-        %h2 Comments
-        - @article.comments.each do |comment|
-            %p
-                %strong Commenter:
-                = comment.user.name
-            %p
-                %strong Comment:
-                = comment.body
-
-        - if user_signed_in? && current_user.role == 'subscriber'
-            %h2 Add a comment:
-            = form_with(model: [ @article, @article.comments.build ], local: true) do |form|
-                %p
-                    Commenter:
-                    = current_user.name
-                %p
-                    = form.hidden_field :user_id, value: current_user.id
-                %p
-                    = form.label :body
-                    %br/
-                    = form.text_area :body
-                %p
-                    = form.submit
+            = link_to 'Edit', edit_content_management_article_path(@article)

@@ -2,20 +2,20 @@ FactoryBot.define do
   factory :user do
     password { 'password' }
     name { 'Jon' }
-    email { Faker::Internet.email }
+    email { 'mail@mail.com' }
 
     factory :member do
-      email { Faker::Internet.email }
+      email { 'mail@mail.com' }
       role { 0 }
     end
 
     factory :journalist do
-      email { Faker::Internet.email }
+      email { 'mail@mail.com' }
       role { 1 }
     end
 
     factory :editor do
-      email { Faker::Internet.email }
+      email { 'mail@mail.com' }
       role { 2 }
     end
   end
