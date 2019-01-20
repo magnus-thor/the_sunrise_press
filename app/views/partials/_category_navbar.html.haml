@@ -1,5 +1,5 @@
-%ul.list-reset.flex.justify-around
+%ul.category_navbar
     - categories.each do |category|
         %li
             %p
-                = link_to category.name, category_path(category), class: 'category-item'
+                = link_to category.name, category_path(category), class: 'category_item'

@@ -1,14 +1,14 @@
-%nav.flex.items-center.justify-between.flex-wrap.sunrise
-    .text-sm.lg:flex-grow.flex.justify-start.text-black.no-underline
-        = link_to image_tag('logo.png', {id: 'logo'}), root_path
+%nav
+    = link_to image_tag('logo.png', {id: 'logo'}), root_path
 
 -if user_signed_in?
-    = link_to 'Subscribe', new_subscriber_path(current_user) if current_user.member?
-    = link_to 'New article', new_content_management_article_path unless current_user.member?
-    = link_to 'Articles', content_management_articles_path if current_user.editor?
-    = link_to 'Logout', destroy_user_session_path, method: :delete
+    .nav_button= link_to 'Subscribe', (new_subscriber_path(current_user) if current_user.member?)
+    .nav_link_4= link_to 'New article', new_content_management_article_path unless current_user.member?
+    .nav_link_2= link_to 'Articles', content_management_articles_path if current_user.editor?
+    .nav_link_3= link_to 'Logout', destroy_user_session_path, method: :delete
 - else
-    = link_to 'Register', new_user_registration_path
-    = link_to 'Login', new_user_session_path
-%br
+    .nav_button= link_to 'Subscribe', (new_subscriber_path)
+    .nav_link_4= link_to 'Register', new_user_registration_path
+    .nav_link_3= link_to 'Login', new_user_session_path
+
 = notice || alert
