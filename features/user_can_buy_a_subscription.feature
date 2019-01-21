@@ -5,15 +5,41 @@ Feature: User can buy a subscription
     In order to get access to the best articles
     I would like to be able to buy a subscription
 
-    Background: 
+    Background:
         Given the following user exists
-            | name | email          | password | password_confirmation |
-            | Bill | bill@email.com | password | password              |
-            
-        And I am logged in as 'bill@email.com'
+            | name | email          | password | password_confirmation | role   |
+            | Bill | bill@email.com | password | password              | member |
 
-    Scenario: User can buy a subscription
-        Given I click on 'Subscribe'
-        And I fill in the payment form
-        And I submit the payment form
-        Then I should see 'Thank you for subscribing The Sunrise Press, the maker of news while making news'
+        And the following article exists:
+            | title      | description    | content               | user_id | category_id | published |
+            | News title | This is a news | I like to eat cheese! | Bill    | Weather     | true      |
+
+    Scenario: Member can buy a subscription from landing page
+        Given I am logged in as 'bill@email.com'
+        And I click on 'Become a subscriber'
+        And I pay for a subscription
+        Then I should see 'Thank you for subscribing to The Sunrise Press!'
+
+    Scenario: Member can buy a subscription from article page
+        Given I am logged in as 'bill@email.com'
+        And I click on 'News title'
+        And I click on 'Subscribe'
+        And I pay for a subscription
+        Then I should see 'Thank you for subscribing to The Sunrise Press!'
+        
+    Scenario: Visitors can buy a subscription from landing page
+        Given I visit the landing page
+        And I click on 'Become a subscriber'
+        And I sign up for an account
+        And I click on 'Become a subscriber'
+        And I pay for a subscription
+        Then I should see 'Thank you for subscribing to The Sunrise Press!'
+    
+    Scenario: Visitor can buy a subscription from article page
+        Given I visit the landing page
+        And I click on 'News title'
+        And I click on 'Subscribe'
+        And I sign up for an account
+        And I click on 'Become a subscriber'
+        And I pay for a subscription
+        Then I should see 'Thank you for subscribing to The Sunrise Press!'

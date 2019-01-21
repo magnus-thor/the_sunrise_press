@@ -4,8 +4,13 @@
         %p= image_tag @article.image if @article.image.attached? 
         %p.m-4= "Written by #{@article.user.name}"
         %p= @article.description
+        %p= @article.content
+       
         - if user_cannot_access_content
             = 'Premium content. To access content, please subscribe.'
+            = link_to 'Subscribe', new_subscriber_path(current_user) if user_is_a_member
+            = link_to 'Subscribe', new_user_registration_path if user_is_a_visitor
+
         - else
             %p= @article.content
         - if current_user_is_the_author

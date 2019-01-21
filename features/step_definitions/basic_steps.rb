@@ -80,7 +80,24 @@ When("I click on {string} within {string}") do |button, title|
     end
 end
 
-
 Given("I attach a file") do
     attach_file('article_image', "#{::Rails.root}/spec/fixtures/basic_image.png")
 end
+
+When('I sign up for an account') do
+    steps %{
+        Given I should see 'Register'
+        And I fill in 'Email' field with 'new@mail.com'
+        And I fill in 'Password' field with 'password'
+        And I fill in 'Password confirmation' field with 'password'
+        And I click on 'Sign up'
+    }
+end
+
+When('I pay for a subscription') do
+    steps %{
+        And I fill in the payment form
+        And I submit the payment form
+    }
+end
+
