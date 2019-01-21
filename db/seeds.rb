@@ -20,9 +20,11 @@ editor = User.create(email: 'editor@mail.com', name: 'Editor', password: 'passwo
 2.times do 
     article = Article.create(
         published: true, 
+        premium: true,
         title: Faker::GreekPhilosophers.quote, 
         description: Faker::DumbAndDumber.quote,
-        content: Faker::HowIMetYourMother.quote, 
+        content: Faker::HowIMetYourMother.quote,
+        journalist: journalist.name,
         user_id: journalist.id, 
         category_id: science.id)
     article.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'breakingnews.png')), filename: "placeholder-image.png", content_type: 'image/png')
@@ -35,6 +37,7 @@ end
         title: Faker::GreekPhilosophers.quote, 
         description: Faker::DumbAndDumber.quote, 
         content: Faker::HowIMetYourMother.quote, 
+        journalist: journalist.name,
         user_id: journalist.id, 
         category_id: sports.id)
     article.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'breakingnews.png')), filename: "placeholder-image.png", content_type: 'image/png')
@@ -46,6 +49,7 @@ end
         title: Faker::GreekPhilosophers.quote, 
         description: Faker::DumbAndDumber.quote, 
         content: Faker::HowIMetYourMother.quote, 
+        journalist: journalist.name,
         user_id: journalist.id, 
         category_id: science.id)
     article.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'breakingnews.png')), filename: "placeholder-image.png", content_type: 'image/png')
