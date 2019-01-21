@@ -6,7 +6,7 @@
         = link_to 'Become', new_subscriber_path(current_user) if user_is_a_member
     = link_to 'Users', content_management_users_path if user_is_a_editor
     .nav_link_4= link_to 'New article', new_content_management_article_path unless user_is_a_member
-    .nav_link_2= ink_to 'Articles', content_management_articles_path if user_is_a_editor
+    .nav_link_2= link_to 'Articles', content_management_articles_path if user_is_a_editor
     .nav_link_3= link_to 'Logout', destroy_user_session_path, method: :delete
 - else
     .nav_button

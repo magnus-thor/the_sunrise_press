@@ -18,30 +18,36 @@ journalist = User.create(email: 'journalist@mail.com', name: 'Journalist', passw
 editor = User.create(email: 'editor@mail.com', name: 'Editor', password: 'password', role: 3)
 
 2.times do 
-    Article.create(
+    article = Article.create(
         published: true, 
         title: Faker::GreekPhilosophers.quote, 
         description: Faker::DumbAndDumber.quote,
         content: Faker::HowIMetYourMother.quote, 
         user_id: journalist.id, 
         category_id: science.id)
+    article.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'breakingnews.png')), filename: "placeholder-image.png", content_type: 'image/png')
+
 end
 
 2.times do
-    Article.create(
+    article = Article.create(
         published: true, 
         title: Faker::GreekPhilosophers.quote, 
         description: Faker::DumbAndDumber.quote, 
         content: Faker::HowIMetYourMother.quote, 
         user_id: journalist.id, 
         category_id: sports.id)
+    article.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'breakingnews.png')), filename: "placeholder-image.png", content_type: 'image/png')
+
 end
 
 2.times do
-    Article.create(
+    article = Article.create(
         title: Faker::GreekPhilosophers.quote, 
         description: Faker::DumbAndDumber.quote, 
         content: Faker::HowIMetYourMother.quote, 
         user_id: journalist.id, 
         category_id: science.id)
+    article.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'breakingnews.png')), filename: "placeholder-image.png", content_type: 'image/png')
 end
+

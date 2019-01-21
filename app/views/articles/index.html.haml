@@ -2,6 +2,7 @@
     -if article.published?
         %div{id: dom_id(article)}
             = link_to "#{article.title}", article_path(article), {class: 'main'}
+            %p= image_tag article.image if article.image.attached? 
             %h4= article.description
             %p= article.category.name
             %br
