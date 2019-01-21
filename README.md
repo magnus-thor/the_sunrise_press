@@ -1,6 +1,6 @@
 # The Sunshine Press
 ---
-This is a simple news site.
+This is a news site.
 
 # Features included:
 * Visitor can register for an account

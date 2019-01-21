@@ -1,3 +1,5 @@
+@api_call_main_page
+
 Feature: Editor can grant journalist access to write articles
 
     As an editor
