@@ -1,8 +1,18 @@
+- @articles.each do |article|
+    -if article.published?
+        %div{id: dom_id(article)}
+            = link_to "#{article.title}", article_path(article), {class: 'main'}
+            %h4= article.description
+            %p= article.category.name
+            %br
+            %br
 
-.flex.flex-wrap.justify-center
-    - @articles.each do |article|
-        -if article.published?
-            %div.m-8.w-33p.shadow-inner.p-4.flex.flex-col.justify-between{id: dom_id(article)}
-                = link_to "#{article.title}", article_path(article), {class: 'main'}
-                %h4.mt-8= article.description
-                %p.border.rounded-full.w-33p.text-center.bg-grey-lightest.text-xs.mt-4= article.category.name
+%h2 Outside source
+- @external_articles.each do | feed |
+    %h3
+        %strong= feed.title
+    %img{src: "#{feed.urlToImage}", width: "200px"}/
+    %p= feed.description
+    %p= link_to "Read the full story on #{feed.name}", feed.url, target: :_blank
+    %br
+    %br

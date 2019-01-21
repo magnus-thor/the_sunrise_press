@@ -1,3 +1,4 @@
+@api_call_main_page
 Feature: Subscriber can comment on article
 
     As a Subscriber

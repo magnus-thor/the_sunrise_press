@@ -16,6 +16,7 @@ gem 'tailwindcss', '~> 0.2.0'
 gem 'haml-rails', '~> 1.0'
 gem 'stripe-rails'
 gem 'aws-sdk-s3'
+gem 'news-api'
 gem 'rails-i18n'
 gem 'faker', '~> 1.9', '>= 1.9.1'
 
@@ -32,6 +33,7 @@ group :development, :test do
   gem 'stripe-ruby-mock', '~> 2.5.4', require: 'stripe_mock'
   gem 'chromedriver-helper'
   gem 'selenium-webdriver'
+  gem 'webmock'
 end
 
 group :development do

@@ -1,3 +1,4 @@
+@api_call_main_page
 Feature: Editor can restrict premium articles for non-subscribers
 
     As a site owner,

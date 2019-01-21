@@ -3,15 +3,15 @@
 
 -if user_signed_in?
     .nav_button= link_to 'Become a subscriber', new_subscriber_path(current_user) if user_is_a_member
+    = link_to 'Users', content_management_users_path if user_is_a_editor
     .nav_link_4= link_to 'New article', new_content_management_article_path unless user_is_a_member
     .nav_link_2= ink_to 'Articles', content_management_articles_path if user_is_a_editor
     .nav_link_3= link_to 'Logout', destroy_user_session_path, method: :delete
 - else
-    .nav_button= link_to 'Subscribe', (new_subscriber_path)
+    .nav_button= link_to 'Become a subscriber', new_user_registration_path if user_is_a_visitor
     .nav_link_4= link_to t('Register'), new_user_registration_path
     .nav_link_3= link_to t('Login'), new_user_session_path
     = link_to_unless_current "English", locale: 'en'
     = link_to_unless_current "Svenska", locale: 'sv'
-    = link_to 'Become a subscriber', new_user_registration_path if user_is_a_visitor
 %br
 = notice || alert

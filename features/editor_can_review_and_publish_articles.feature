@@ -1,3 +1,4 @@
+@api_call_main_page
 Feature: Editor can review and publish articles
 
     As an editor,

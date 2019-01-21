@@ -1,3 +1,4 @@
+@api_call_main_page
 Feature: Visitor can view all listed articles
 
     As a visitor

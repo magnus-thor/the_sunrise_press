@@ -1,3 +1,4 @@
+@api_call_main_page
 Feature: Visitor can read a specific article
 
     As a visitor

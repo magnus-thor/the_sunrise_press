@@ -1,3 +1,4 @@
+@api_call_main_page
 Feature: Visitor can register for an account
 
     As a Visitor,

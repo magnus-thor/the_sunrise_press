@@ -1,3 +1,4 @@
+@api_call_main_page
 Feature: Visitor can change language
     As a user
     In order to be able to read articles in my native language,

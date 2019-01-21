@@ -1,3 +1,4 @@
+@api_call_main_page
 Feature: Editor can delete articles
 
     As an editor,

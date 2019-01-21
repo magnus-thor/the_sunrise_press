@@ -14,3 +14,4 @@ This is a simple news site.
 * Logged in user can comment on articles
 * User can buy a subscription
 * User can login and logout
+* Users can read articles from external resources 

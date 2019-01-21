@@ -1,3 +1,4 @@
+@api_call_main_page
 Feature: User can login and logout
 
     As a registered user

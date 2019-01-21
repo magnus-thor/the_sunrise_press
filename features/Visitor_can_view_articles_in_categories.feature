@@ -1,3 +1,4 @@
+@api_call_main_page
 Feature: Visitor can see articles in categories
 
     As a visitor

@@ -1,3 +1,4 @@
+@api_call_main_page
 Feature: Journalist can create article
 
     As a journalist,

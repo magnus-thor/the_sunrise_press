@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
     def index
         @articles = Article.all
+        @external_articles = NewsFeedService.get_feed('all', 'cnn', 'http://us.cnn.com', 4) 
     end
     
     def show

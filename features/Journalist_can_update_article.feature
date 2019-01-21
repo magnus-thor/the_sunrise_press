@@ -1,3 +1,4 @@
+@api_call_main_page
 Feature: Journalist can create article
 
     As a Journalist,
@@ -10,12 +11,12 @@ Feature: Journalist can create article
             | Bill | bill@email.com | password | password              | journalist |
 
         And the following article exists:
-            | title   | description        | content                      | user_id | category_id | published |
-            | News    | This is a news     | I like to eat cheese!        | Bill    | Weather     | true      |
-            | Article | This is an article | I do not like to eat cheese! | Bill    | Sport       | true      |
-            
+            | title      | description        | content                      | user_id | category_id | published |
+            | News title | This is a news     | I like to eat cheese!        | Bill    | Weather     | true      |
+            | Article    | This is an article | I do not like to eat cheese! | Bill    | Sport       | true      |
+
         And I am logged in as 'bill@email.com'
-        And I click on 'News'
+        And I click on 'News title'
         And I click on 'Edit article'
 
     Scenario: Journalist can update article
