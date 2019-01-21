@@ -9,7 +9,7 @@ Feature: Visitor can change language
             | name     |
             | Sport    |
             | Weather  |
-            | Politics |
+            | Science |
             | Culture  |
             
         And I visit the landing page
@@ -19,7 +19,7 @@ Feature: Visitor can change language
         And I should see 'Login'
         And I should see 'Sport'
         And I should see 'Weather'
-        And I should see 'Politics'
+        And I should see 'Science'
         And I should see 'Culture'
         
     Scenario: Visitor can see categories, register and login in swedish language

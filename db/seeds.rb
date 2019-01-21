@@ -3,10 +3,14 @@ require 'faker'
 Article.destroy_all
 Category.destroy_all
 
-Category.create(name: 'Weather')
-Category.create(name: 'Culture')
-politics = Category.create(name: 'Politics')
-sport = Category.create(name: 'Sport')
+Category.create(name: 'General')
+Category.create(name: 'Business')
+Category.create(name: 'Entertainment')
+Category.create(name: 'Health')
+Category.create(name: 'Technology')
+science = Category.create(name: 'Science')
+sports = Category.create(name: 'Sports')
+
 
 member = User.create(email: 'member@mail.com', name: 'Member', password: 'password', role: 0)
 subscriber = User.create(email: 'subscriber@mail.com', name: 'Subscriber', password: 'password', role: 1)
@@ -20,7 +24,7 @@ editor = User.create(email: 'editor@mail.com', name: 'Editor', password: 'passwo
         description: Faker::DumbAndDumber.quote,
         content: Faker::HowIMetYourMother.quote, 
         user_id: journalist.id, 
-        category_id: politics.id)
+        category_id: science.id)
 end
 
 2.times do
@@ -30,7 +34,7 @@ end
         description: Faker::DumbAndDumber.quote, 
         content: Faker::HowIMetYourMother.quote, 
         user_id: journalist.id, 
-        category_id: sport.id)
+        category_id: sports.id)
 end
 
 2.times do
@@ -39,5 +43,5 @@ end
         description: Faker::DumbAndDumber.quote, 
         content: Faker::HowIMetYourMother.quote, 
         user_id: journalist.id, 
-        category_id: politics.id)
+        category_id: science.id)
 end
