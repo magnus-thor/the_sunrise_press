@@ -21,6 +21,7 @@ gem 'rails-i18n'
 gem 'faker', '~> 1.9', '>= 1.9.1'
 gem 'rack-cors', require: 'rack/cors'
 gem 'devise_token_auth'
+gem 'active_model_serializers'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
