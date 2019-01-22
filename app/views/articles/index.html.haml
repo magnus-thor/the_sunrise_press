@@ -28,10 +28,5 @@
                     %img{src: "#{feed.urlToImage}", width: "200px"}/
                 .newsfeed_title
                     = feed.title
-                -# .newsfeed_description
-                -#     = feed.description
                 .newsfeed_link.font-bold.hover:underline
                     = link_to "Read the full story on #{feed.name}", feed.url, target: :_blank, style: "text-decoration: none; color:inherit; vertical-align: text-bottom"
-
-.footer
-    %p Copyright 2018 © The Sunrise Press
