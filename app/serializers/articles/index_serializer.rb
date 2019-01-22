@@ -3,6 +3,8 @@ class Articles::IndexSerializer < ActiveModel::Serializer
 
     attributes :id, :title, :description, :content, :image, :created_at
     belongs_to :user, serializer: Users::UserInfoForArticleIndexSerializer
+    belongs_to :category, serializer: Categories::CategoryInfoForArticleIndexSerializer
+
 
     def image
         if Rails.env.test?

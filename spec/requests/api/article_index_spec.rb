@@ -21,8 +21,9 @@ RSpec.describe 'Article index', type: :request do
 
         context 'detailed specs to test associations' do
             let(:user) { create(:user, email: 'member@mail.com') }
-            let!(:published_article) { create(:article, title: 'My first article', user: user, published: true )}
-            let!(:unpublished_article) { create(:article, title: 'My second article', user: user, published: false  )}
+            let(:category) { create(:category, name: 'Sports') }
+            let!(:published_article) { create(:article, title: 'My first article', user: user, category: category, published: true )}
+            let!(:unpublished_article) { create(:article, title: 'My second article', user: user, category: category, published: false  )}
 
             before do
                 get '/api/articles'
@@ -31,6 +32,11 @@ RSpec.describe 'Article index', type: :request do
             it 'includes info about user' do
                 expected_email = response_json['articles'][0]['user']['email']
                 expect(expected_email).to eq 'member@mail.com' 
+            end
+
+            it 'includes info about category' do
+                expected_category = response_json['articles'][0]['category']['name']
+                expect(expected_category).to eq 'Sports' 
             end
 
             it 'includes info about image' do
