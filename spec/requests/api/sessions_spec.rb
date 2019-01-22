@@ -17,7 +17,7 @@ RSpec.describe 'Sessions', type: :request do
                                       'provider' => 'email'}    
                                       }
 
-      expect(JSON.parse(response.body)).to eq expected_response
+      expect(response_json).to eq expected_response
     end
 
     it 'invalid password returns error message' do
@@ -25,7 +25,7 @@ RSpec.describe 'Sessions', type: :request do
                                           password: 'wrong_password'
                                       }, headers: headers
 
-      expect(JSON.parse(response.body)['errors']).to eq ['Invalid login credentials. Please try again.']
+      expect(response_json['errors']).to eq ['Invalid login credentials. Please try again.']
       expect(response.status).to eq 401
     end
 
@@ -34,7 +34,7 @@ RSpec.describe 'Sessions', type: :request do
                                           password: user.password
                                       }, headers: headers
 
-      expect(JSON.parse(response.body)['errors']).to eq ['Invalid login credentials. Please try again.']
+      expect(response_json['errors']).to eq ['Invalid login credentials. Please try again.']
       expect(response.status).to eq 401
     end
   end

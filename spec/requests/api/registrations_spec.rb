@@ -10,7 +10,7 @@ RSpec.describe 'User Registration', type: :request do
                                  password_confirmation: 'whatever'
                               }, headers: headers
 
-      expect(JSON.parse(response.body)['status']).to eq 'success'
+      expect(response_json['status']).to eq 'success'
       expect(response.status).to eq 200
     end
   end
@@ -22,7 +22,7 @@ RSpec.describe 'User Registration', type: :request do
                                  password_confirmation: 'Whatever'
                               }, headers: headers
 
-      expect(JSON.parse(response.body)['errors']['password_confirmation']).to eq ["doesn't match Password"]
+      expect(response_json['errors']['password_confirmation']).to eq ["doesn't match Password"]
       expect(response.status).to eq 422
     end
 
@@ -32,7 +32,7 @@ RSpec.describe 'User Registration', type: :request do
                                  password_confirmation: 'whatever'
                               }, headers: headers
 
-      expect(JSON.parse(response.body)['errors']['email']).to eq ['is not an email']
+      expect(response_json['errors']['email']).to eq ['is not an email']
       expect(response.status).to eq 422
     end
 
@@ -46,7 +46,7 @@ RSpec.describe 'User Registration', type: :request do
                                  password_confirmation: 'whatever'
                               }, headers: headers
 
-      expect(JSON.parse(response.body)['errors']['email']).to eq ['has already been taken']
+      expect(response_json['errors']['email']).to eq ['has already been taken']
       expect(response.status).to eq 422
     end
   end
