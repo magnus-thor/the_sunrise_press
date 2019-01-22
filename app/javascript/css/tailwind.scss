@@ -221,21 +221,23 @@ nav {
 
 .users {
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-	width: 50%;
+	width: 40%;
 	margin-left:auto; 
 	margin-right:auto;
-	text-align: center;
+	
 	
 	td,th {
 		padding: 8px;
+		text-align: center
+		
 	  }
 	  
 	th {
 		padding-top: 12px;
 		padding-bottom: 12px;
-		text-align: center;
-		background-color: #bec6cc;
-		color: white;
+		color: #4E96CA;
+		border-bottom: 1px solid #9CA3A8;
+		
 	}
 }
 
