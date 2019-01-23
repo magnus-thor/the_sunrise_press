@@ -14,6 +14,8 @@ Rails.application.routes.draw do
       sessions: 'api/sessions',
       registrations: 'api/registrations'
     }
+    
+    resources :articles, only: [:index, :show]
   end
   
   devise_for :users  

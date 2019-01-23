@@ -4,12 +4,14 @@ class Article < ApplicationRecord
     belongs_to :category
     belongs_to :user
     has_many :comments
+
+    scope :all_published, -> { where(published: true) }
     
     def published?
-        self.published
+        published
     end
 
     def not_published?
-        !self.published
+        !published
     end
 end

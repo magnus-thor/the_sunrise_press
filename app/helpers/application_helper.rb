@@ -23,4 +23,5 @@ module ApplicationHelper
     def user_is_a_editor
         user_signed_in? && current_user.role == 'editor'
     end
+
 end
