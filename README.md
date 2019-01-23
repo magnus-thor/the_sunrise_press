@@ -2,7 +2,7 @@
 ---
 This is a news site.
 
-# Features included:
+# Basic features included:
 * Visitor can register for an account
 * Visitor can view all listed articles
 * Visitor can view articles in categories
@@ -14,4 +14,8 @@ This is a news site.
 * Logged in user can comment on articles
 * User can buy a subscription
 * User can login and logout
-* Users can read articles from external resources 
+* Users can read articles from external resources
+
+# API features included:
+* External clients can access available articles via app API
+* External client can access specific articles
