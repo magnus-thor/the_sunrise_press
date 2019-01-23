@@ -22,7 +22,7 @@ RSpec.describe 'Article index', type: :request do
         context 'detailed specs to test associations' do
             let(:user) { create(:user, email: 'member@mail.com') }
             let(:category) { create(:category, name: 'Sports') }
-            let!(:published_article) { create(:article, title: 'My first article', user: user, category: category, published: true )}
+            let!(:published_article) { create(:article, title: 'My first article', content: 'It is about sports', user: user, category: category, published: true )}
             let!(:unpublished_article) { create(:article, title: 'My second article', user: user, category: category, published: false  )}
 
             before do
@@ -32,6 +32,16 @@ RSpec.describe 'Article index', type: :request do
             it 'includes info about user' do
                 expected_email = response_json['articles'][0]['user']['email']
                 expect(expected_email).to eq 'member@mail.com' 
+            end
+
+            it 'includes info about title' do
+                expected_title = response_json['articles'][0]['title']
+                expect(expected_title).to eq 'My first article' 
+            end
+
+            it 'includes info about content' do
+                expected_content = response_json['articles'][0]['content']
+                expect(expected_content).to eq 'It is about sports' 
             end
 
             it 'includes info about category' do
