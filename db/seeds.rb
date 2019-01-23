@@ -22,8 +22,8 @@ editor = User.create(email: 'editor@mail.com', name: 'Editor', password: 'passwo
         published: true, 
         premium: true,
         title: Faker::GreekPhilosophers.quote, 
-        description: Faker::DumbAndDumber.quote,
-        content: Faker::HowIMetYourMother.quote,
+        description: Faker::Lorem.paragraph_by_chars(180, false),
+        content: Faker::Lorem.paragraph_by_chars(300, false),
         journalist: journalist.name,
         user_id: journalist.id, 
         category_id: science.id)
@@ -35,8 +35,8 @@ end
     article = Article.create(
         published: true, 
         title: Faker::GreekPhilosophers.quote, 
-        description: Faker::DumbAndDumber.quote, 
-        content: Faker::HowIMetYourMother.quote, 
+        description: Faker::Lorem.paragraph_by_chars(180, false), 
+        content: Faker::Lorem.paragraph_by_chars(300, false), 
         journalist: journalist.name,
         user_id: journalist.id, 
         category_id: sports.id)
@@ -47,8 +47,8 @@ end
 2.times do
     article = Article.create(
         title: Faker::GreekPhilosophers.quote, 
-        description: Faker::DumbAndDumber.quote, 
-        content: Faker::HowIMetYourMother.quote, 
+        description: Faker::Lorem.paragraph_by_chars(180, false), 
+        content: Faker::Lorem.paragraph_by_chars(300, false), 
         journalist: journalist.name,
         user_id: journalist.id, 
         category_id: science.id)

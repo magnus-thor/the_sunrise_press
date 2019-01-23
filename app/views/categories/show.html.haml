@@ -5,17 +5,16 @@
             -if article.published?
                 %div{id: dom_id(article)}
                     .article_image.m-2.pl-0
-                        %p= image_tag article.image if article.image.attached?
+                        = image_tag article.image if article.image.attached?
                     .text-sm.text-grey.pl-2.pb-2
-                        %p= article.category.name.upcase
+                        = article.category.name.upcase
                     .text-3xl.font-bold.hover:underline.pl-2.pb-2
                         = link_to "#{article.title}", article_path(article), style: "text-decoration: none; color:inherit;"
                     .font-medium.pl-2.pb-2
-                        %p
-                            .premium_tag
-                                = "PREMIUM" if article.premium
-                            = article.description
-                    %p.text-sm.text-grey.pl-2.pb-2
+                        .premium_tag
+                            = "PREMIUM" if article.premium
+                        = article.description
+                    .text-sm.text-grey.pl-2.pb-2
                         By
                         =article.journalist
                         =article.created_at.strftime("%B %d, %Y")

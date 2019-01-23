@@ -61,6 +61,22 @@ nav {
 	border-left: solid #8795A1 1px;
 }
 
+.ads_container {
+	grid-column-start: 3;
+	grid-column-end: span 1;
+	grid-row-start: 3;
+	grid-row-end: span 1;
+	// border: 1px solid black;
+	padding-left: 1rem;
+	margin-right: 3rem;
+	// border-left: solid #8795A1 1px;
+}
+
+.ad_image {
+	width: 400px;
+	margin-top: 10rem;
+}
+
 .newsfeed {
 	display: grid;
 	grid-template-columns: auto auto;
@@ -94,6 +110,12 @@ nav {
 	bottom: 0;
 }
 
+.article_page {
+	grid-column-start: 1;
+	grid-column-end: span 2;
+	grid-row-start: 2;
+	grid-row-end: span 1;
+}
 
 .footer {
 	grid-column-start: 1;
