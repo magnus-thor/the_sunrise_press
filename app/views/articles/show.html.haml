@@ -1,24 +1,26 @@
 .main_news_container
-    .text-3xl.font-bold.pl-2.pb-2
+    .title.text-4xl.font-bold.pl-2.pb-2
         = @article.title
     %p.text-sm.text-grey.pl-2.pb-2
         By
         =@article.journalist
         =@article.created_at.strftime("%B %d, %Y")
-    .article_image.m-2.pl-0
+    .showpage_article_image.m-2.pl-0
         = image_tag @article.image if @article.image.attached?
     .text-sm.text-grey.pl-2.pb-2
         = @article.category.name.upcase
     .font-medium.pl-2.pb-2
         .premium_tag.mt-3
             = "PREMIUM" if @article.premium
-        .text-xl.text-grey-darkest.font-bold.mb-3= @article.description
+        .text-xl.text-grey-darkest.font-bold.mb-3.mt-2
+            = @article.description
 
     - if user_cannot_access_content
         .pl-2.pb-2.text-grey-darkest= @article.content if !@article.premium
-        = 'Premium content. To access content, please subscribe.' if @article.premium
-        = link_to 'Subscribe', new_subscriber_path(current_user) if user_is_a_member && @article.premium
-        = link_to 'Subscribe', new_user_registration_path if user_is_a_visitor && @article.premium
+        .pl-2.pb-2.text-red-dark
+            = 'Premium content. To access content, please subscribe.' if @article.premium
+            = link_to 'Subscribe', new_subscriber_path(current_user) if user_is_a_member && @article.premium
+            = link_to 'Subscribe', new_user_registration_path if user_is_a_visitor && @article.premium
     - else
         .pl-2.pb-2.text-grey-darkest= @article.content
     - if current_user_is_the_author
@@ -51,5 +53,6 @@
 
 .ads_container
     .ad_image
-        =image_tag "ad_craftacademy.png"
+        .mb-2=image_tag "ad_craftacademy.png"
+        .mb-2=image_tag "ad_facebook.png"
 

@@ -1,5 +1,5 @@
 .main_news_container
-    %p.text-2xl.text-grey-darkest.font-bold.pl-1.pb-3.pt-1
+    %p.text-2xl.text-red-darkest.font-bold.pl-1.pb-3.pt-1
         = @category.name
         - @category.articles.each do |article|
             -if article.published?
@@ -20,7 +20,7 @@
                         =article.created_at.strftime("%B %d, %Y")
 
 .api_news_container 
-    %p.text-2xl.text-grey-darkest.font-bold.pl-1.pb-3.pt-1
+    %p.text-2xl.text-red-darkest.font-bold.pl-1.pb-3.pt-1
         Outside source
         - @external_articles.each do | feed |
             .newsfeed
