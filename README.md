@@ -18,3 +18,4 @@ This is a news site.
 
 # API features included:
 * External clients can access available articles via app API
+* External client can access specific articles
