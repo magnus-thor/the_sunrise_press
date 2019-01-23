@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Article index', type: :request do
-    describe 'GET /api/articles ' do
-        context 'basic specs' do
+    describe 'GET articles#index ' do
+        context 'all articles' do
             let!(:published_articles) { 5.times { create(:article, published: true) } }
             let!(:unpublished_articles) { 5.times { create(:article, published: false) } }
 
@@ -19,7 +19,7 @@ RSpec.describe 'Article index', type: :request do
             end
         end
 
-        context 'detailed specs to test associations' do
+        context 'articles associations' do
             let(:user) { create(:user, email: 'member@mail.com') }
             let(:category) { create(:category, name: 'Sports') }
             let!(:published_article) { create(:article, title: 'My first article', content: 'It is about sports', user: user, category: category, published: true )}
@@ -52,6 +52,39 @@ RSpec.describe 'Article index', type: :request do
             it 'includes info about image' do
                 expected_url = response_json['articles'][0]['image']
                 expect(expected_url).to match(/attachment.png/)
+            end
+        end
+    end
+
+    describe 'GET articles#show ' do
+
+        context 'specific article' do
+            let(:user) { create(:user, email: 'member@mail.com') }
+            let(:category) { create(:category, name: 'Sports') }
+            let!(:published_article) { create(:article, title: 'My first article', content: 'It is about sports', user: user, category: category, published: true )}
+            let!(:unpublished_article) { create(:article, title: 'My second article', user: user, category: category, published: false  )}
+
+            before do
+                get "/api/articles/#{published_article.id}"
+            end
+            
+            it 'is a valid request' do
+                expect(response.status).to eq 200
+            end
+            
+            it 'includes article' do
+                article = response_json["article"]["title"]
+                expect(article).to eq 'My first article'
+            end
+        
+            it 'includes category' do
+                category = response_json['article']['category']['name']
+                expect(category).to eq 'Sports'
+            end
+        
+            it 'includes user' do
+                author = response_json['article']['user']['name']
+                expect(author).to eq user.name
             end
         end
     end

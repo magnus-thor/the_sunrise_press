@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       registrations: 'api/registrations'
     }
     
-    resources :articles, only: [:index]
+    resources :articles, only: [:index, :show]
   end
   
   devise_for :users  
