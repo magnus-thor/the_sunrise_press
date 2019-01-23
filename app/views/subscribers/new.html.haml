@@ -1,8 +1,10 @@
-= form_with url: subscribers_path, local: true, id: 'subscriber_form' do |form|
-    = form.label 'Credit or debit card'
-    %br/
-    = form.label '100 SEK'
+.stripeform_container
+    .stripe_form
+        = form_with url: subscribers_path, local: true, id: 'subscriber_form' do |form|
+            = form.label 'Credit or debit card'
+            %br/
+            = form.label '100 SEK'
 
-    #card-element.border-2.rounded-full.m-4.ml-32.mr-32.p-2.bg-grey-lightest
-    
-    = form.submit 'Submit Payment'
+            #card-element.border-2.rounded-full.m-4.ml-32.mr-32.p-2.bg-grey-lightest
+            
+            = form.submit 'Submit Payment'

@@ -1,11 +1,11 @@
-%h1.m-4 Non published articles
+%h1.m-4.text-red-darkest Non-published articles
 .flex.flex-wrap{class: published_state.to_s}
     - articles.each do |article|
         - if article.send("#{published_state}?".to_sym)
             %div.border-2.bg-grey-lightest.m-4.p-4.w-33p{id: dom_id(article)}
                 %h2= article.title 
-                %p= image_tag article.image if article.image.attached? 
-                %h4= article.description
-                %p= article.category.name
-                %p= "Written by #{article.user.name}"
-                = link_to 'Review', content_management_article_path(article)
+                %p.mt-4= image_tag article.image if article.image.attached? 
+                %h4.mt-4= article.description
+                %p.mt-4= article.category.name
+                %p.mt-4= "Written by #{article.user.name}"
+                %p.mt-4= link_to 'Review', content_management_article_path(article)

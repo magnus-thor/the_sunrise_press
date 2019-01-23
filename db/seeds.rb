@@ -14,7 +14,7 @@ sports = Category.create(name: 'Sports')
 
 member = User.create(email: 'member@mail.com', name: 'Member', password: 'password', role: 0)
 subscriber = User.create(email: 'subscriber@mail.com', name: 'Subscriber', password: 'password', role: 1)
-journalist = User.create(email: 'journalist@mail.com', name: 'Journalist', password: 'password', role: 2)
+journalist = User.create(email: 'journalist@mail.com', name: 'Christiane Amanpour', password: 'password', role: 2)
 editor = User.create(email: 'editor@mail.com', name: 'Editor', password: 'password', role: 3)
 
 2.times do 
