@@ -1,4 +1,4 @@
-.flex.flex-wrap{class: published_state.to_s}
+.flex.flex-wrap.border.border-solid.bg-blue-lightest{class: published_state.to_s}
     - articles.each do |article|
         - if article.send("#{published_state}?".to_sym)
             %div.border-2.bg-grey-lightest.m-4.p-4.w-33p{id: dom_id(article)}

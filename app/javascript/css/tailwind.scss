@@ -35,10 +35,6 @@ nav {
 	grid-row-start: 2;
 	grid-row-end: span 1;
 	margin-top: 1rem;
-	// border-bottom: 1px solid black;
-	// border-top: 1px solid black;
-	// list-style-type: none;
-	// display: inline-block;
 }
 
 .main_news_container {
@@ -46,7 +42,6 @@ nav {
 	grid-column-end: span 2;
 	grid-row-start: 3;
 	grid-row-end: span 1;
-	// border: 1px solid black;
 	padding-left: 3.5rem;
 }
 
@@ -55,7 +50,6 @@ nav {
 	grid-column-end: span 1;
 	grid-row-start: 3;
 	grid-row-end: span 1;
-	// border: 1px solid black;
 	padding-left: 1rem;
 	margin-right: 3rem;
 	border-left: solid #8795A1 1px;
@@ -66,10 +60,8 @@ nav {
 	grid-column-end: span 1;
 	grid-row-start: 3;
 	grid-row-end: span 1;
-	// border: 1px solid black;
 	padding-left: 1rem;
 	margin-right: 3rem;
-	// border-left: solid #8795A1 1px;
 }
 
 .ad_image {
@@ -129,10 +121,6 @@ nav {
 	padding: 1rem;
 }
 
-// .article {
-// 	padding-left: -2px;
-// }
-
 .article_image {
 	width: 650px;
 }
@@ -155,29 +143,14 @@ nav {
 	width: 57px;
 	font-size: 10px;
 	padding: 4px;
-	// margin-bottom: 4px;
 	border-radius: 2px;
 }
-
-// .showpage_title {
-// 	margin-right: -5rem;
-// }
 
 .nav_button {
 	cursor: pointer;
 	position: absolute; 
 	top: 1.75rem;
 	right: 3rem;
-	// background: white;
-	// font-size: .875rem;
-	// padding: 0.5rem 1rem;
-	// border-radius: .25rem;
-	// text-decoration: none;
-	// color: inherit;
-}
-
-.nav_button:hover {
-	// background-color: #e7e7e7;
 }
 
 .nav_link_5 {
@@ -226,7 +199,6 @@ nav {
 .nav_link_3 {
 	font-weight: 500;
 	font-size: .800rem;
-	// color: white;
 	border-width: 1px;
 	border-color: transparent;
 	border-radius: .15rem;
@@ -240,8 +212,6 @@ nav {
 .nav_link_4 {
 	font-weight: 500;
 	font-size: .800rem;
-	// text-decoration: none;
-	// color: white;
 	border-width: 1px;
 	border-color: transparent;
 	border-radius: .15rem;
@@ -250,6 +220,8 @@ nav {
 	position: absolute; 
 	top: 2rem;
 	right: 13.5rem;
+	text-decoration: none!important;
+	color: white;
 }
 
 .cms_index_container {
@@ -281,11 +253,6 @@ nav {
 	width: 600px;
 	text-align: center;
 }
-
-// .stripeform {
-// 	width: 200px;
-// }
-
 
 /* ---------Log in----------*/
 .login_container, 

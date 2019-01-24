@@ -1,4 +1,4 @@
-.cms_index_container
+.cms_index_container.bg-grey-dark.border.border-solid.ml-5.mr-5
     -if current_user.role == 'editor'
         %h1.m-4.text-red-darkest Non-published articles
         = render partial: 'articles_list', locals: {articles: @articles, published_state: :not_published}

@@ -25,5 +25,5 @@ Feature: User can login and logout
 
     Scenario: When I am logged in, I should be able to logout
         Given I am logged in as 'bill@email.com'
-        And I click on 'Logout'
+        And I click on 'Log out'
         Then I should see 'Signed out successfully.'
