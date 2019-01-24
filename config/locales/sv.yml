@@ -1,6 +1,6 @@
 sv:
-  register: Registrera
-  login: Logga in
+  Register: Registrera
+  Login: Logga in
   General: Allmänt
   Business: Finans
   Entertainment: Nöje

@@ -1,5 +1,5 @@
 .new_article.new_article_container
-    = form_with model: @article, url: content_management_articles_path do | form |
+    = form_with model: @article, url: content_management_article_path do | form |
         = notice || alert
         %p
             = form.label :title

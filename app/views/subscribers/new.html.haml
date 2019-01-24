@@ -1,4 +1,4 @@
-.stripeform_container.signup
+.stripeform_container
     = form_with url: subscribers_path, local: true, id: 'subscriber_form' do |form|
         = form.label 'Credit or debit card'
         %br/
@@ -6,4 +6,4 @@
 
         #card-element.border-2.rounded-full.m-4.ml-32.mr-32.p-2.bg-grey-lightest
             
-        .w-64.mx-auto= form.submit 'Submit Payment'
+        = form.submit 'Submit Payment'

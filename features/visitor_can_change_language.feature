@@ -8,25 +8,23 @@ Feature: Visitor can change language
         Given the following category exists:
             | name     |
             | Sport    |
-            | Weather  |
-            | Science |
-            | Culture  |
-            
+            | Business |
+            | Science  |
+            | Health   |
+
         And I visit the landing page
 
     Scenario: Visitor can see categories, register and login on index page
         Then I should see 'Register'
-        And I should see 'Login'
+        And I should see 'Log in'
         And I should see 'Sport'
-        And I should see 'Weather'
-        And I should see 'Science'
-        And I should see 'Culture'
-        
+        And I should see 'Business'
+        And I should see 'Health'
+
     Scenario: Visitor can see categories, register and login in swedish language
-        Given I click on 'Svenska'
+        Given I click on 'SV'
         Then I should see 'Registrera'
         And I should see 'Logga in'
         And I should see 'Sport'
-        And I should see 'Väder'
-        And I should see 'Politik'
-        And I should see 'Kultur'
+        And I should see 'Finans'
+        And I should see 'Hälsa'

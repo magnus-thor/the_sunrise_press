@@ -1,6 +1,6 @@
 en:
-  register: Register
-  login: Login
+  Register: Register
+  Login: Log in
   General: General
   Business: Business
   Entertainment: Entertainment
