@@ -168,7 +168,14 @@ nav {
 	position: absolute; 
 	top: 1.75rem;
 	right: 3rem;
+	// background: white;
+	// font-size: .875rem;
+	// padding: 0.5rem 1rem;
+	// border-radius: .25rem;
+	// text-decoration: none;
+	// color: inherit;
 }
+
 .nav_button:hover {
 	// background-color: #e7e7e7;
 }
@@ -176,8 +183,8 @@ nav {
 .nav_link_5 {
 	font-weight: 500;
 	font-size: .800rem;
-	// text-decoration: none;
-	// color: inherit;
+	text-decoration: none;
+	color: inherit;
 	border-width: 1px;
 	border-color: transparent;
 	border-radius: .15rem;
@@ -191,8 +198,8 @@ nav {
 .nav_link_1 {
 	font-weight: 500;
 	font-size: .800rem;
-	// text-decoration: none;
-	// color: inherit;
+	text-decoration: none;
+	color: inherit;
 	border-width: 1px;
 	border-color: transparent;
 	border-radius: .15rem;

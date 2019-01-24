@@ -20,6 +20,14 @@ module ApplicationHelper
         user_signed_in? && current_user.role == 'member'
     end
 
+    def user_is_a_journalist
+        user_signed_in? && current_user.role == 'journalist'
+    end
+
+    def user_can_write_article
+        user_signed_in? && current_user.role == 'journalist' || current_user.role == 'editor'
+    end
+
     def user_is_a_editor
         user_signed_in? && current_user.role == 'editor'
     end
