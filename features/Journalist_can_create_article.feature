@@ -25,7 +25,6 @@ Feature: Journalist can create article
         And I attach a file
         And I select 'Weather' from 'Category'
         And I click on 'Save Article'
-        Then show me the page
         Then I should see 'My article 2'
         And I should see 'Bill'
         And I should see 'This is the article about the sunny weather'

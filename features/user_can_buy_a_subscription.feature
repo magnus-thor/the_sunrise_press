@@ -14,8 +14,8 @@ Feature: User can buy a subscription
             | Bill | bill@email.com | password | password              | member |
 
         And the following article exists:
-            | title      | description    | content               | user_id | category_id | published |
-            | News title | This is a news | I like to eat cheese! | Bill    | Weather     | true      |
+            | title      | description    | content               | user_id | category_id | published | premium |
+            | News title | This is a news | I like to eat cheese! | Bill    | Weather     | true      | true    |
 
     Scenario: Member can buy a subscription from landing page
         Given I am logged in as 'bill@email.com'
@@ -28,7 +28,6 @@ Feature: User can buy a subscription
         And I click on 'News title'
         And I click on 'Subscribe'
         And I pay for a subscription
-                Then show me the page
         Then I should see 'Thank you for subscribing to The Sunrise Press!'
         
     Scenario: Visitors can buy a subscription from landing page
