@@ -28,6 +28,7 @@ Feature: User can buy a subscription
         And I click on 'News title'
         And I click on 'Subscribe'
         And I pay for a subscription
+                Then show me the page
         Then I should see 'Thank you for subscribing to The Sunrise Press!'
         
     Scenario: Visitors can buy a subscription from landing page
