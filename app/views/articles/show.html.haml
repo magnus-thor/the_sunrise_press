@@ -40,7 +40,7 @@
                 Comment:
                 = comment.body
 
-    - if current_user_is_a_subscriber
+    - if user_is_a_member || current_user_is_a_subscriber
         .pl-2.pb-2.text-green-dark.mt-5.font-bold Add a comment:
         = form_with(model: [ @article, @article.comments.build ], local: true, :html => { :style => 'background-color: #F1F5F8; border-radius: 0.25rem;' }) do |form|
             .pl-2.mt-1.text-sm
