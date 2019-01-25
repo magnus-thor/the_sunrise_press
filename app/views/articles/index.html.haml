@@ -13,9 +13,9 @@
                         .premium_tag
                             = "PREMIUM" if article.premium
                         .text-grey-darkest= article.description
-                    .text-sm.text-grey.pl-2.pb-2
+                    .text-sm.text-grey.pl-2.pb-2.mb-5
                         By
-                        =article.journalist
+                        =article.user.name
                         =article.created_at.strftime("%B %d, %Y")
 
 .api_news_container 

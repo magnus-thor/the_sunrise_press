@@ -12,10 +12,10 @@ science = Category.create(name: 'Science')
 sports = Category.create(name: 'Sports')
 
 
-member = User.create(email: 'member@mail.com', name: 'Member', password: 'password', role: 0)
-subscriber = User.create(email: 'subscriber@mail.com', name: 'Subscriber', password: 'password', role: 1)
+member = User.create(email: 'member@mail.com', name: 'Stefan Löven', password: 'password', role: 0)
+subscriber = User.create(email: 'subscriber@mail.com', name: 'Magnus Uggla', password: 'password', role: 1)
 journalist = User.create(email: 'journalist@mail.com', name: 'Christiane Amanpour', password: 'password', role: 2)
-editor = User.create(email: 'editor@mail.com', name: 'Editor', password: 'password', role: 3)
+editor = User.create(email: 'editor@mail.com', name: 'Gunde Svan', password: 'password', role: 3)
 
 2.times do 
     article = Article.create(
