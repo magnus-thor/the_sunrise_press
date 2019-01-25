@@ -1,6 +1,32 @@
-.flex.flex-wrap.justify-center
-    -@category.articles.each do |article|
-        -if article.published?
-            .m-8.w-33p.border-2.shadow.text-center.flex.flex-col
-                = link_to "#{article.title}", article_path(article), {class: 'main'}
-                %h3.mt-8= article.description
+.main_news_container
+    %p.text-2xl.text-red-darkest.font-bold.pl-1.pb-3.pt-1
+        = @category.name
+        - @category.articles.each do |article|
+            -if article.published?
+                %div{id: dom_id(article)}
+                    .article_image.m-2.pl-0
+                        = image_tag article.image if article.image.attached?
+                    .text-sm.text-grey.pl-2.pb-2
+                        = article.category.name.upcase
+                    .text-3xl.font-bold.hover:underline.pl-2.pb-2
+                        = link_to "#{article.title}", article_path(article), style: "text-decoration: none; color:inherit;"
+                    .font-medium.pl-2.pb-2
+                        .premium_tag
+                            = "PREMIUM" if article.premium
+                        = article.description
+                    .text-sm.text-grey.pl-2.pb-2
+                        By
+                        =article.journalist
+                        =article.created_at.strftime("%B %d, %Y")
+
+.api_news_container 
+    %p.text-2xl.text-red-darkest.font-bold.pl-1.pb-3.pt-1
+        Outside source
+        - @external_articles.each do | feed |
+            .newsfeed
+                .newsfeed_image.pl-2
+                    %img{src: "#{feed.urlToImage}", width: "200px"}/
+                .newsfeed_title
+                    = feed.title
+                .newsfeed_link.font-bold.hover:underline
+                    = link_to "Read the full story on #{feed.name}", feed.url, target: :_blank, style: "text-decoration: none; color:inherit; vertical-align: text-bottom"

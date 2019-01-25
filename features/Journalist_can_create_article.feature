@@ -19,15 +19,15 @@ Feature: Journalist can create article
         And I click on 'New article'
 
     Scenario: Journalist can create article
-        Given I fill in 'Title' field with 'My article'
+        Given I fill in 'Title' field with 'My article 2'
         And I fill in 'Description' field with 'This is a description'
-        And I fill in 'Content' field with 'This is my article about the sunny weather'
+        And I fill in 'Content' field with 'This is the article about the sunny weather'
         And I attach a file
         And I select 'Weather' from 'Category'
         And I click on 'Save Article'
-        Then I should see 'My article'
+        Then I should see 'My article 2'
         And I should see 'Bill'
-        And I should see 'This is my article about the sunny weather'
+        And I should see 'This is the article about the sunny weather'
 
     Scenario: Journalist fills out New article form unsuccessfully
         When I click on 'Save Article'

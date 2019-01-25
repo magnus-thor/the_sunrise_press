@@ -1,7 +1,10 @@
 en:
-  register: Register
-  login: Login
-  Sport: Sport
-  Weather: Weather
-  Politics: Politics
-  Culture: Culture
+  Register: Register
+  Login: Log in
+  General: General
+  Business: Business
+  Entertainment: Entertainment
+  Health: Health
+  Technology: Technology
+  Science: Science
+  Sports: Sports

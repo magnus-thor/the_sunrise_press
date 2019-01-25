@@ -1,9 +1,9 @@
-.ml-10p.mr-10p.flex.justify-center
+.signup_container
     .flex.flex-col.items-center.m-8.text-center
-        %h1= @article.title
-        %p= image_tag @article.image if @article.image.attached? 
+        %h1.mb-8= @article.title
+        %p.w-64= image_tag @article.image if @article.image.attached? 
         %p.m-4= "Written by #{@article.user.name}"
-        %p= @article.content
+        %p.mb-8= @article.content
         =link_to 'Publish article', content_management_article_path(@article, toggle_publish: true), method: :patch
         =link_to 'Set as premium article', content_management_article_path(@article, toggle_premium: true), method: :patch
         =link_to 'Edit article', edit_content_management_article_path

@@ -1,5 +1,5 @@
-%ul.list-reset.flex.justify-around
-    - categories.each do |category|
-        %li
-            %p
-                = link_to t(category.name), category_path(category), class: 'category-item'
+.category_navbar
+    %ul.list-reset.flex.justify-around.text-black.font-bold.mb-8.pb-3.border-b-2
+        - categories.each do |category|
+            %li
+                = link_to t(category.name), category_path(category), {style:"text-decoration: none; color: #22292f"}

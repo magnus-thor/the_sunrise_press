@@ -33,17 +33,32 @@ end
 
 Before '@api_call_main_page' do 
   WebMock.disable_net_connect!(allow_localhost: true)
-  stub_request(:get, "https://newsapi.org/v2/everything?domains=http://us.cnn.com&language=en&pageSize=4&q=all&sources=cnn").
-      with(
+  stub_request(:get, "https://newsapi.org/v2/everything?domains=http://us.cnn.com&language=en&pageSize=15&q=all&sources=cnn").
+    with(
         headers: {
         'Accept'=>'*/*',
         'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
         'Host'=>'newsapi.org',
         'User-Agent'=>'Ruby',
-        'X-Api-Key'=> Rails.application.credentials.news[:api_key]
+        'X-Api-Key'=>'aa0deabbbff3418f9ed23311ef0c9ee1'
       }).
   to_return(status: 200, body: Rails.root.join('features', 'support', 'fixtures', 'api_call_main_page.txt').read, headers: {})
 end
+
+Before '@api_call_business' do 
+  WebMock.disable_net_connect!(allow_localhost: true)
+  stub_request(:get, "https://newsapi.org/v2/everything?domains=http://us.cnn.com&language=en&pageSize=15&q=Business&sources=cnn").
+    with(
+        headers: {
+        'Accept'=>'*/*',
+        'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+        'Host'=>'newsapi.org',
+        'User-Agent'=>'Ruby',
+        'X-Api-Key'=>'aa0deabbbff3418f9ed23311ef0c9ee1'
+      }).
+  to_return(status: 200, body: Rails.root.join('features', 'support', 'fixtures', 'api_call_category_business.txt').read, headers: {})
+end
+
 
 Before '@stripe' do
   chrome_options << 'headless'

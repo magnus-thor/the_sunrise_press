@@ -1,7 +1,10 @@
 sv:
-  register: Registrera
-  login: Logga in
-  Sport: Sport
-  Weather: Väder
-  Politics: Politik
-  Culture: Kultur
+  Register: Registrera
+  Login: Logga in
+  General: Allmänt
+  Business: Finans
+  Entertainment: Nöje
+  Health: Hälsa
+  Technology: Teknologi
+  Science: Vetenskap
+  Sports: Sport

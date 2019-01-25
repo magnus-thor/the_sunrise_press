@@ -14,8 +14,8 @@ Feature: User can buy a subscription
             | Bill | bill@email.com | password | password              | member |
 
         And the following article exists:
-            | title      | description    | content               | user_id | category_id | published |
-            | News title | This is a news | I like to eat cheese! | Bill    | Weather     | true      |
+            | title      | description    | content               | user_id | category_id | published | premium |
+            | News title | This is a news | I like to eat cheese! | Bill    | Weather     | true      | true    |
 
     Scenario: Member can buy a subscription from landing page
         Given I am logged in as 'bill@email.com'

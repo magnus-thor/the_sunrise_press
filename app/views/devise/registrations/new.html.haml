@@ -1,38 +1,41 @@
-%br
-%h4 
-  Thank you for your interest! Becoming a member provides you access to our newsletters.
-  In order to also view our premium content, please become a member first (below), then subscribe.
-  
-%br
-%h2 Register
 
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+.signup_container
+  .signup_header.text-red-darkest.text-center.mb-16.ml-16.mr-16.text-lg.font-semibold.leading-tight
+    Thank you for your interest! Becoming a member provides you with access to our newsletters, 
+    access to our mobile app, and the ability to comment on articles. Furthermore, you can choose to 
+    receive great offers from our partners. In order to also view our premium content, 
+    please make sure you proceed to pay for a subscription after you have signed up below.
 
-  = devise_error_messages!
+  .signup
+    %h2.mb-6 Register
 
-  .field
-    = f.label :name
-    %br/
-    = f.text_field :name, autofocus: true, autocomplete: 'name'
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
 
-  .field
-    = f.label :email 
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: 'email'
+      = devise_error_messages!
 
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: 'new-password'
+      .field
+        = f.label :name
+        %br/
+        = f.text_field :name, autofocus: true, autocomplete: 'name'
 
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: 'new-password'
-  .actions
-    = f.submit 'Sign up'
+      .field
+        = f.label :email 
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: 'email'
 
-= render 'devise/shared/links'
+      .field
+        = f.label :password
+        - if @minimum_password_length
+          %em
+            (#{@minimum_password_length} characters minimum)
+        %br/
+        = f.password_field :password, autocomplete: 'new-password'
+
+      .field
+        = f.label :password_confirmation
+        %br/
+        = f.password_field :password_confirmation, autocomplete: 'new-password'
+      .signup_button
+        = f.submit 'Sign up'
+
+    = render 'devise/shared/links'

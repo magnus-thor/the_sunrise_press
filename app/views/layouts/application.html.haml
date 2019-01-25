@@ -1,15 +1,18 @@
 !!!
 %html
-  %head
-    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title TheSunrisePress
-    = csrf_meta_tags
-    = csp_meta_tag
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    = stylesheet_pack_tag    'application'
-    = javascript_pack_tag 'application'
-    %script{src: 'https://js.stripe.com/v3/'}
-  %body
-    = render partial: 'partials/navbar'
-    = render partial: 'partials/category_navbar', locals: {categories: @categories}
-    = yield
+    %head
+        %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+        %title The Sunrise Press
+        = csrf_meta_tags
+        = csp_meta_tag
+        = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+        = stylesheet_pack_tag    'application'
+        = javascript_pack_tag 'application'
+        %script{src: 'https://js.stripe.com/v3/'}
+    %body
+        .grid_container
+            = render partial: 'partials/navbar'
+            = render partial: 'partials/category_navbar', locals: {categories: @categories}
+            = yield
+        .footer
+            %p Copyright 2019 © The Sunrise Press

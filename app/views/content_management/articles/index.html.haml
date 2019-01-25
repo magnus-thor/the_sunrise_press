@@ -1,3 +1,6 @@
--if current_user.role == 'editor'
-    = render partial: 'articles_list', locals: {articles: @articles, published_state: :not_published}
-    = render partial: 'articles_list', locals: {articles: @articles, published_state: :published}
+.cms_index_container.bg-grey-dark.border.border-solid.ml-5.mr-5
+    -if current_user.editor?
+        %h1.m-4.text-red-darkest Non-published articles
+        = render partial: 'articles_list', locals: {articles: @articles, published_state: :not_published}
+        %h1.m-4.text-red-darkest Published articles
+        = render partial: 'articles_list', locals: {articles: @articles, published_state: :published}

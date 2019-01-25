@@ -1,22 +1,25 @@
-%nav.flex.items-center.justify-between.flex-wrap.sunrise
-    .text-sm.lg:flex-grow.flex.justify-start.text-black.no-underline
-        =link_to image_tag('logo.png', {id: 'logo'}), root_path
+%nav
+    = link_to image_tag('logo.png', {id: 'logo'}), root_path
 
 -if user_signed_in?
-    = link_to 'Users', content_management_users_path if user_is_a_editor
-    = link_to 'Become a subscriber', new_subscriber_path(current_user) if user_is_a_member
-    = link_to 'New article', new_content_management_article_path unless user_is_a_member
-    = link_to 'Articles', content_management_articles_path if user_is_a_editor
-    = link_to 'Logout', destroy_user_session_path, method: :delete
+    - if user_is_a_member
+        .nav_button.bg-white.text-sm.py-2.px-4.rounded
+            = link_to 'Become a subscriber', new_subscriber_path(current_user), {style: "text-decoration: none; color:inherit"}
+    - if user_is_a_editor
+        .nav_link_5= link_to 'Users', content_management_users_path, {style: "text-decoration: none; color:white"}
+    - if user_can_write_article
+        .nav_link_3= link_to 'New article', new_content_management_article_path, {style: "text-decoration: none; color:white"}
+    - if user_is_a_editor
+        .nav_link_2= link_to 'Articles', content_management_articles_path, {style: "text-decoration: none; color:white"}
+    .nav_link_4= link_to 'Log out', destroy_user_session_path, method: :delete
 - else
-    .button
-        = link_to t('register'), new_user_registration_path
-    .button
-        = link_to t('login'), new_user_session_path
-    .button
-        = link_to_unless_current "English", locale: 'en'
-    .button
-        = link_to_unless_current "Svenska", locale: 'sv'
-    = link_to 'Become a subscriber', new_user_registration_path if user_is_a_visitor
+    .nav_button.bg-white.text-sm.py-2.px-4.rounded
+        = link_to 'Become a subscriber', (new_user_registration_path if user_is_a_visitor), {style: "text-decoration: none; color:inherit"}
+    .nav_link_1
+        = link_to_unless_current "EN", locale: 'en'
+    .nav_link_2
+        = link_to_unless_current "SV", locale: 'sv'
+    .nav_link_3= link_to t('Register'), new_user_registration_path, {style: "text-decoration: none; color:white"}
+    .nav_link_4= link_to t('Login'), new_user_session_path, {style: "text-decoration: none; color:white"}
 %br
-= notice || alert
+    .text-white= notice || alert

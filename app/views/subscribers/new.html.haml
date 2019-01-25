@@ -1,8 +1,13 @@
-= form_with url: subscribers_path, local: true, id: 'subscriber_form' do |form|
-    = form.label 'Credit or debit card'
-    %br/
-    = form.label '100 SEK'
+.stripeform_container
+    .text-red-darkest.text-center.mb-10.-mt-5.text-lg.font-semibold.leading-tight
+        Thank you for your interest! Become a subscriber for a meager 100sek to enjoy all the latest news,
+        be able to comment on articles, and get updates on our fantastic partner offers.
 
-    #card-element.border-2.rounded-full.m-4.ml-32.mr-32.p-2.bg-grey-lightest
-    
-    = form.submit 'Submit Payment'
+    = form_with url: subscribers_path, local: true, id: 'subscriber_form' do |form|
+        = form.label 'Credit or debit card'
+        %br/
+        = form.label '100 SEK'
+
+        #card-element.border-2.rounded-full.m-4.ml-32.mr-32.p-2.bg-grey-lightest
+            
+        .mb-32= form.submit 'Submit Payment'

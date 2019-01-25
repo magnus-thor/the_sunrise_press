@@ -1,41 +1,57 @@
-.ml-10p.mr-10p.flex.justify-center
-    .flex.flex-col.items-center.m-8.text-center
-        %h1= @article.title
-        %p= image_tag @article.image if @article.image.attached? 
-        %p.m-4= "Written by #{@article.user.name}"
-        %p= @article.description
-        %p= @article.content
-       
-        - if user_cannot_access_content
-            = 'Premium content. To access content, please subscribe.'
-            = link_to 'Subscribe', new_subscriber_path(current_user) if user_is_a_member
-            = link_to 'Subscribe', new_user_registration_path if user_is_a_visitor
+.main_news_container
+    .title.text-4xl.font-bold.pl-2.pb-2
+        = @article.title
+    %p.text-sm.text-grey.pl-2.pb-2
+        By
+        = @article.user.name
+        = @article.created_at.strftime("%B %d, %Y")
+    .showpage_article_image.m-2.pl-0
+        = image_tag @article.image if @article.image.attached?
+    .text-sm.text-grey.pl-2.pb-2
+        = @article.category.name.upcase
+    .font-medium.pl-2.pb-2
+        .premium_tag.mt-3
+            = "PREMIUM" if @article.premium
+        .text-xl.text-grey-darkest.font-bold.mb-3.mt-2
+            = @article.description
+            
+    - if user_cannot_access_content
+        .pl-2.pb-2.text-grey-darkest= @article.content if !@article.premium
+        .pl-2.pb-2.text-red-dark
+            = 'Premium content. To access content, please subscribe.' if @article.premium
+            - if @article.premium && user_is_a_visitor
+                = link_to 'Subscribe', new_user_registration_path
+            - if @article.premium && user_is_a_member
+                = link_to 'Subscribe', new_subscriber_path(current_user)
+    - else
+        .pl-2.pb-2.text-grey-darkest= @article.content
+    - if current_user_is_the_author
+        .pl-2.pb-2.text-grey-darkest.mt-4=link_to 'Edit article', edit_content_management_article_path(@article)
 
-        - else
-            %p= @article.content
-        - if current_user_is_the_author
-            =link_to 'Edit article', edit_content_management_article_path(@article)
-
-        %h2 Comments
-        - @article.comments.each do |comment|
-            %p
-                %strong Commenter:
+    - @article.comments.each do |comment|
+        .text-green-dark.pl-2.pb-2.text-grey-darkest.mt-5.font-bold
+            Comment:
+        %p
+            .pl-2.pb-2.mt-2.text-sm
+                Submitted by:
                 = comment.user.name
-            %p
-                %strong Comment:
+        %p
+            .pl-2.pb-2.mt-2.text-sm 
+                Comment:
                 = comment.body
 
-        - if current_user_is_a_subscriber
-            %h2 Add a comment:
-            = form_with(model: [ @article, @article.comments.build ], local: true) do |form|
-                %p
-                    Commenter:
-                    = current_user.name
-                %p
-                    = form.hidden_field :user_id, value: current_user.id
-                %p
-                    = form.label :body
-                    %br/
-                    = form.text_area :body
-                %p
-                    = form.submit
+    - if user_is_a_member || current_user_is_a_subscriber
+        .pl-2.pb-2.text-green-dark.mt-5.font-bold Add a comment:
+        = form_with(model: [ @article, @article.comments.build ], local: true, html: { style: 'background-color: #F1F5F8; border-radius: 0.25rem;' }) do |form|
+            .pl-2.mt-1.text-sm
+                = form.hidden_field :user_id, value: current_user.id
+                .text-xs.text-grey-lighter= form.label :body
+                = form.text_area :body
+                %br/
+                .mt-4.mb-2.pb-3= form.submit
+
+.ads_container
+    .ad_image
+        .mb-2=image_tag "ad_craftacademy.png"
+        .mb-2=image_tag "ad_facebook.png"
+

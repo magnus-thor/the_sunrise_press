@@ -22,7 +22,7 @@ Feature: Editor can restrict premium articles for non-subscribers
         And I click on 'Articles'
         And I click on 'Review' within 'News'
         And I click on 'Set as premium article'
-        And I click on 'Logout'
+        And I click on 'Log out'
         And I am logged in as 'jill@email.com'
         When I click on 'News'
         Then I should see 'Premium content. To access content, please subscribe.'
