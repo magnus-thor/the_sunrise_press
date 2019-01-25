@@ -3,8 +3,8 @@
         = @article.title
     %p.text-sm.text-grey.pl-2.pb-2
         By
-        =@author.name
-        =@article.created_at.strftime("%B %d, %Y")
+        = @article.user.name
+        = @article.created_at.strftime("%B %d, %Y")
     .showpage_article_image.m-2.pl-0
         = image_tag @article.image if @article.image.attached?
     .text-sm.text-grey.pl-2.pb-2
@@ -42,7 +42,7 @@
 
     - if user_is_a_member || current_user_is_a_subscriber
         .pl-2.pb-2.text-green-dark.mt-5.font-bold Add a comment:
-        = form_with(model: [ @article, @article.comments.build ], local: true, :html => { :style => 'background-color: #F1F5F8; border-radius: 0.25rem;' }) do |form|
+        = form_with(model: [ @article, @article.comments.build ], local: true, html: { style: 'background-color: #F1F5F8; border-radius: 0.25rem;' }) do |form|
             .pl-2.mt-1.text-sm
                 = form.hidden_field :user_id, value: current_user.id
                 .text-xs.text-grey-lighter= form.label :body
