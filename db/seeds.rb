@@ -2,6 +2,7 @@ require 'faker'
 
 Article.destroy_all
 Category.destroy_all
+User.destroy_all
 
 general = Category.create(name: 'General')
 Category.create(name: 'Business')
@@ -28,7 +29,6 @@ editor = User.create(email: 'editor@mail.com', name: 'Gunde Svan', password: 'pa
         user_id: journalist.id, 
         category_id: general.id)
     article.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'breakingnews.png')), filename: "placeholder-image.png", content_type: 'image/png')
-
 end
 
 2.times do
