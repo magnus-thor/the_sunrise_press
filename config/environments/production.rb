@@ -12,7 +12,7 @@ Rails.application.configure do
   config.assets.js_compressor = Uglifier.new(harmony:true)
   config.assets.compile = false
 
-  config.active_storage.service = :local
+  config.active_storage.service = :amazon
 
   config.log_level = :debug
 
