@@ -39,6 +39,7 @@ Rails.application.configure do
 
   config.assets.quiet = true
 
+  config.web_console.whitelisted_ips = '192.168.1.0/24'
   
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 end
